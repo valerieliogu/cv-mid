@@ -7,9 +7,9 @@ import { Send } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Nama tidak boleh kosong").max(100, "Nama maksimal 100 karakter"),
-  email: z.string().trim().email("Email tidak valid").max(255, "Email maksimal 255 karakter"),
-  message: z.string().trim().min(1, "Pesan tidak boleh kosong").max(1000, "Pesan maksimal 1000 karakter"),
+  name: z.string().trim().min(1, "Name can't be empty").max(100, "Max 100 character"),
+  email: z.string().trim().email("Email not valid").max(255, "Email max 255 character"),
+  message: z.string().trim().min(1, "Message can't be empty").max(1000, "Message max 1000 character"),
 });
 
 const Contact = () => {
@@ -37,8 +37,8 @@ const Contact = () => {
       localStorage.setItem("contact_messages", JSON.stringify(messages));
 
       toast({
-        title: "Pesan Berhasil Dikirim! ✨",
-        description: "Terima kasih telah menghubungi saya. Saya akan segera merespons pesan Anda.",
+        title: "Message Sent! ✨",
+        description: "Thank you for reaching out. I'll get back to you soon.",
       });
 
       setForm({ name: "", email: "", message: "" });
@@ -52,8 +52,8 @@ const Contact = () => {
         setErrors(fieldErrors);
 
         toast({
-          title: "Validasi Gagal",
-          description: "Mohon periksa kembali form Anda.",
+          title: "Invalid",
+          description: "Please check the form again.",
           variant: "destructive",
         });
       }
@@ -71,7 +71,7 @@ const Contact = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-foreground glow-text">Get In Touch</h1>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
             <p className="text-muted-foreground">
-              Tertarik untuk bekerja sama? Hubungi saya melalui form di bawah ini
+              Would you like to do a collaboration? Feel free to drop me a message using the form below or reach out via email.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ const Contact = () => {
               {/* Name */}
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium text-foreground">
-                  Nama Lengkap <span className="text-destructive">*</span>
+                  Full Name <span className="text-destructive">*</span>
                 </label>
                 <Input
                   id="name"
@@ -119,7 +119,7 @@ const Contact = () => {
               {/* Message */}
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-foreground">
-                  Pesan <span className="text-destructive">*</span>
+                  Message <span className="text-destructive">*</span>
                 </label>
                 <Textarea
                   id="message"
@@ -141,7 +141,7 @@ const Contact = () => {
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 glow-border smooth-transition group"
               >
                 {isSubmitting ? (
-                  "Mengirim..."
+                  "Sending..."
                 ) : (
                   <>
                     <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
@@ -153,12 +153,12 @@ const Contact = () => {
           </div>
 
           <div className="text-center text-sm text-muted-foreground">
-            <p>Atau hubungi saya langsung melalui email:</p>
+            <p>Through Email:</p>
             <a
-              href="mailto:valerie.liogu@example.com"
+              href="mailto:valerieliogu23@gmail.com"
               className="text-primary hover:underline font-medium"
             >
-              valerie.liogu@example.com
+              valerieliogu23@gmail.com
             </a>
           </div>
 
