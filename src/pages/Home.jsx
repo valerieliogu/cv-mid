@@ -32,17 +32,6 @@ const Home = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
           <Button
             asChild
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 glow-border smooth-transition group"
-          >
-            <a href="#" className="flex items-center gap-2">
-              <Download className="w-5 h-5" />
-              Download CV
-            </a>
-          </Button>
-
-          <Button
-            asChild
             variant="outline"
             size="lg"
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground smooth-transition group"
